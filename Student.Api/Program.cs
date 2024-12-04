@@ -1,4 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+using Student.Api.data; // importing the data context
+
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))); // adding the data context to the services
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
